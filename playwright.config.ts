@@ -24,15 +24,11 @@ export default defineConfig({
   preserveOutput: 'failures-only',
 
   reporter: [
-    ['list'],
-    ['html', { open: 'never' }],
-    [
-      'allure-playwright',
-      {
-        resultsDir: 'allure-results',
-      },
-    ],
-  ],
+  ['list'],
+  ['html', { open: 'never' }],
+  ['json', { outputFile: 'test-results/results.json' }],
+  ['allure-playwright', { resultsDir: 'allure-results' }],
+],
 
   use: {
     navigationTimeout: 60_000,
